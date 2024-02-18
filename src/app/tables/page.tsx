@@ -1,7 +1,7 @@
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
-import TableOne from "@/components/Tables/TableOne";
-import TableThree from "@/components/Tables/TableThree";
-import TableTwo from "@/components/Tables/TableTwo";
+import TableOne from "@/components/ThemeTables/TableOne";
+import TableThree from "@/components/ThemeTables/TableThree";
+import TableTwo from "@/components/ThemeTables/TableTwo";
 
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
