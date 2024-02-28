@@ -3,14 +3,15 @@ import Image from "next/image";
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import TableSkills from "@/components/Tables/TableSkills";
+import { useState } from "react";
 
 export const metadata: Metadata = {
   title: "Portfolio Admin - Skills",
-  description:
-    "This is Skills page for FolioAdmin",
+  description: "This is Skills page for FolioAdmin",
 };
 
-const Settings = () => {
+const Skills = () => {
+
   return (
     <DefaultLayout>
       <div className="mx-auto max-w-270">
@@ -21,4 +22,4 @@ const Settings = () => {
   );
 };
 
-export default Settings;
+export default Skills;
