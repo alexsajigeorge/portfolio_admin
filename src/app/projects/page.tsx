@@ -5,19 +5,19 @@ import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import TableProjects from "@/components/Tables/TableProjects";
 
 export const metadata: Metadata = {
-  title: "Portfolio Admin - Skills",
-  description: "This is Skills page for FolioAdmin",
+  title: "Portfolio Admin - Projects",
+  description: "This is Projects page for FolioAdmin",
 };
 
 const Projects = () => {
   return (
     <DefaultLayout>
       <div className="mx-auto max-w-270">
-        <Breadcrumb pageName="Projects" />
+        <Breadcrumb pageName="Skills" />
         <TableProjects />
       </div>
     </DefaultLayout>
   );
 };
 
-export default TableProjects;
+export default Projects;
