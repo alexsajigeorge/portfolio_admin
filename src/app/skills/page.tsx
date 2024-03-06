@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import TableSkills from "@/components/Tables/TableSkills";
 import { useState } from "react";
+import isAuth from "../../../utils/isAuth";
 
 export const metadata: Metadata = {
   title: "Portfolio Admin - Skills",

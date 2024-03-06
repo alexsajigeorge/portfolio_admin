@@ -15,13 +15,13 @@ import axiosInstance from "../../../utils/axiosInstance";
 import React, { useEffect, useState } from "react";
 import { Projects } from "@/types";
 import {
-  DownloadCloudIcon,
   DownloadIcon,
   EyeIcon,
   Loader2Icon,
   Trash2,
 } from "lucide-react";
 import toast from "react-hot-toast";
+import TechStackDropDown from "@/app/projects/TechStachDropdown";
 
 const TableProjects = () => {
   const [projects, setProjects] = useState<Projects[]>([]);
@@ -57,6 +57,7 @@ const TableProjects = () => {
       setLoading(false);
     }
   };
+
 
   const handleTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
@@ -103,10 +104,10 @@ const TableProjects = () => {
       formData.append("project_url", projectUrl);
       formData.append("github_url", githubUrl);
       formData.append("tech_stack", techStack);
-      const response = await axiosInstance.post("/addProject", formData,{
-        headers:{
-          'Content-Type': 'multipart/form-data'
-        }
+      const response = await axiosInstance.post("/addProject", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
       });
       if (response.data) {
         fetchProjects();
@@ -114,7 +115,7 @@ const TableProjects = () => {
         window.location.reload();
         toast.success(response.data.message);
       }
-    } catch (error:any) {
+    } catch (error: any) {
       console.log(error);
       setLoading(false);
       if (error.response && error.response.data) {
@@ -129,6 +130,7 @@ const TableProjects = () => {
 
   useEffect(() => {
     fetchProjects();
+
   }, []);
 
   return (
@@ -226,15 +228,7 @@ const TableProjects = () => {
                       <p className="font-xs mt-1 text-red">{githubUrlError}</p>
                     </div>
                     <div className="mt-2">
-                      <label className="mb-3 block text-sm font-medium text-black dark:text-white">
-                        Tech Stack
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="Tech Stack"
-                        onChange={handleTechStack}
-                        className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                      />
+                      <TechStackDropDown id="id" />
                       <p className="font-xs mt-1 text-red">{techStackError}</p>
                     </div>
                     <div className="mt-8">
