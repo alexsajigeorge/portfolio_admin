@@ -1,23 +1,23 @@
 'use server'
 
 import axiosInstance from "../../../utils/axiosInstance";
- 
+
 export async function authenticate(formData: FormData) {
   try {
-      const response = await axiosInstance.post("/login", FormData);
+    const response = await axiosInstance.post("/login", FormData);
 
-      if (response.status === 200) {
-        const token = response.data.authToken;
-        localStorage.setItem("authToken", token);
-      
-        console.log("Login successful!");
-      } else {
-        console.log("Login failed!");
-      }
+    if (response.status === 200) {
+      const token = response.data.authToken;
+      localStorage.setItem("authToken", token);
+
+      console.log("Login successful!");
+    } else {
+      console.log("Login failed!");
+    }
 
   } catch (error) {
     if (error) {
-      switch (error.type) {
+      switch (error) {
         case 'CredentialsSignin':
           return 'Invalid credentials.'
         default:
